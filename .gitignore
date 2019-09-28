@@ -1,0 +1,4 @@
+.resources_cache.json
+.idea
+*.pyc
+cache/*

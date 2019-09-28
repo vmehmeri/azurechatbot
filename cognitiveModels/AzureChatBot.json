@@ -1,0 +1,307 @@
+{
+  "luis_schema_version": "4.0.0",
+  "versionId": "0.1",
+  "name": "AzureChatBot",
+  "desc": "Luis Model for Azure ChatBot",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "GetIpAddress"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "TestConnectivity"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Port",
+      "roles": [],
+      "hierarchyChildren": []
+    }
+  ],
+  "composites": [
+    {
+      "name": "From",
+      "children": [
+        "VM"
+      ],
+      "roles": []
+    },
+    {
+      "name": "To",
+      "children": [
+        "VM"
+      ],
+      "roles": []
+    }
+  ],
+  "closedLists": [
+    {
+      "name": "Protocol",
+      "subLists": [
+        {
+          "canonicalForm": "TCP",
+          "list": [
+            "tcp"
+          ]
+        },
+        {
+          "canonicalForm": "UDP",
+          "list": [
+            "udp"
+          ]
+        },
+        {
+          "canonicalForm": "Any",
+          "list": [
+			"*"
+		  ]
+        }
+      ],
+      "roles": []
+    },
+    {
+      "name": "VM",
+      "subLists": [
+    {
+        "canonicalForm": "server01",
+        "list": ["jumphost"]
+    },
+    {
+        "canonicalForm": "server02",
+        "list": []
+    }
+],
+      "roles": []
+    }
+  ],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [
+    {
+      "text": "can you tell me whats the ip of vm",
+      "intent": "GetIpAddress",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 32,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "check ip",
+      "intent": "GetIpAddress",
+      "entities": []
+    },
+    {
+      "text": "connectivity from server01 to server02 on tcp port 80",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 18,
+          "endPos": 31
+        },
+        {
+          "entity": "To",
+          "startPos": 36,
+          "endPos": 49
+        },
+        {
+          "entity": "Port",
+          "startPos": 63,
+          "endPos": 64
+        }
+      ]
+    },
+    {
+      "text": "connectivity from server01 to server02",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 18,
+          "endPos": 31
+        },
+        {
+          "entity": "To",
+          "startPos": 36,
+          "endPos": 49
+        }
+      ]
+    },
+    {
+      "text": "connectivity from vm to vm",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 18,
+          "endPos": 19
+        },
+        {
+          "entity": "To",
+          "startPos": 24,
+          "endPos": 25
+        }
+      ]
+    },
+    {
+      "text": "connectivity from vm to vm on tcp port port",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 18,
+          "endPos": 19
+        },
+        {
+          "entity": "To",
+          "startPos": 24,
+          "endPos": 25
+        },
+        {
+          "entity": "Port",
+          "startPos": 39,
+          "endPos": 42
+        }
+      ]
+    },
+    {
+      "text": "connectivity test",
+      "intent": "TestConnectivity",
+      "entities": []
+    },
+    {
+      "text": "connectivity to vm",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 16,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "i need to know an ip address",
+      "intent": "GetIpAddress",
+      "entities": []
+    },
+    {
+      "text": "i would like to test connectivity",
+      "intent": "TestConnectivity",
+      "entities": []
+    },
+    {
+      "text": "test connectivity",
+      "intent": "TestConnectivity",
+      "entities": []
+    },
+    {
+      "text": "test connectivity between server01 and server02 on port 443",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 26,
+          "endPos": 39
+        },
+        {
+          "entity": "To",
+          "startPos": 45,
+          "endPos": 58
+        },
+        {
+          "entity": "Port",
+          "startPos": 68,
+          "endPos": 70
+        }
+      ]
+    },
+    {
+      "text": "test connectivity between vm and vm on port port",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 26,
+          "endPos": 27
+        },
+        {
+          "entity": "To",
+          "startPos": 33,
+          "endPos": 34
+        },
+        {
+          "entity": "Port",
+          "startPos": 44,
+          "endPos": 47
+        }
+      ]
+    },
+    {
+      "text": "test connectivity between vm and vm on tcp port 80",
+      "intent": "TestConnectivity",
+      "entities": [
+        {
+          "entity": "From",
+          "startPos": 26,
+          "endPos": 27
+        },
+        {
+          "entity": "To",
+          "startPos": 33,
+          "endPos": 34
+        },
+        {
+          "entity": "Port",
+          "startPos": 48,
+          "endPos": 49
+        }
+      ]
+    },
+    {
+      "text": "what is the ip of vm",
+      "intent": "GetIpAddress",
+      "entities": []
+    },
+    {
+      "text": "whats the ip of vm",
+      "intent": "GetIpAddress",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 16,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "what's the ip of vm",
+      "intent": "GetIpAddress",
+      "entities": [
+        {
+          "entity": "To",
+          "startPos": 17,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "winter is coming",
+      "intent": "None",
+      "entities": []
+    }
+  ],
+  "settings": []
+}
